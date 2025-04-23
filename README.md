@@ -2,7 +2,7 @@
 
 Aplikasi berbasis web ini dirancang untuk mendeteksi emosi dari video atau gambar menggunakan **face-api.js**. Aplikasi ini memanfaatkan model deep learning yang telah dilatih sebelumnya untuk menganalisis ekspresi wajah dan mengklasifikasikannya ke dalam emosi seperti **senang**, **sedih**, **terkejut**, **marah**, dan lainnya.
 
-![Deteksi Emosi Real-Time](demo.jpg)
+![Screenshot 2025-04-23 182230](https://github.com/user-attachments/assets/adad1070-dcb7-48f8-af59-052321deb632)
 
 ## Fitur
 
