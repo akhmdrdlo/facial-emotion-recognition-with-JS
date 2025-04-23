@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr"></html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deteksi Emosi Real-Time</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .background-shape {
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, #007bff, #6c757d, #e9ecef);
+      z-index: -1;
+      transform: rotate(-45deg);
+    }
+    .container {
+      text-align: center;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 90%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #007bff;
+    }
+    #loadingIndicator {
+      font-size: 16px;
+      color: #6c757d;
+    }
+    #warningMessage {
+      font-size: 14px;
+      color: #dc3545;
+      margin-top: 10px;
+    }
+    .hidden {
+      display: none;
+    }
+    .note-card {
+      background: #f8d7da;
+      color: #721c24;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      font-size: 14px;
+      border: 1px solid #f5c6cb;
+    }
+    .media-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    video, canvas {
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    @media (min-aspect-ratio: 3/2) {
+      .media-container {
+        flex-direction: row;
+        justify-content: center;
+      }
+      video, canvas {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-shape"></div>
+  <div class="container">
+    <h1>Deteksi Emosi dari Wajah secara Real-Time</h1>
+    <div id="loadingIndicator">Memuat model...</div>
+    <div id="warningMessage" class="hidden">⚠️ Tidak dapat mengakses kamera. Harap izinkan akses kamera atau pastikan perangkat Anda memiliki kamera yang berfungsi.</div>
+    <div class="media-container">
+      <video id="video" autoplay muted class="hidden"></video>
+      <canvas id="canvas" class="hidden"></canvas>
+    </div>
+    <div id="emotionResult"></div>
+    <div class="note-card">
+      ⚠️ Harap lepaskan aksesoris seperti kacamata, masker, atau topi untuk hasil deteksi yang lebih akurat.
+    </div>
+  </div>
+
+  <script defer src="face-api.min.js"></script>
+  <script defer src="script.js"></script>
+</body>
+</html>
